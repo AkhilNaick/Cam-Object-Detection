@@ -25,9 +25,15 @@ def findColor(source, lower, upper):
              x1, y1, x2, y2 = bbox
 
              frame = cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 5)
+             
+             # center line location
+             center_x = x1 + (x2 - x1) // 2
+             height = frame.shape[0]
 
+             # Draw center line
+             cv2.line(frame, (center_x, 0), (center_x, height), (0, 0, 255), 2)
 
-        cv2.imshow('mask', mask)
+        #cv2.imshow('mask', mask)
         cv2.imshow('frame', frame)
         #cv2.imshow('res', res)
 
